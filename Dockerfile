@@ -13,3 +13,8 @@ RUN curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-co
 RUN chmod +x /usr/local/bin/docker-compose;
 RUN apt-get install -y docker.io;
 RUN groupadd docker || true;
+RUN apt-get update && \
+     apt-get install -y \
+         zlib1g-dev \
+         && docker-php-ext-install zip
+
