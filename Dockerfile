@@ -1,4 +1,4 @@
-FROM docker:latest
+FROM docker:edge-git
 
 MAINTAINER developers@synopsis.cz
 
@@ -27,8 +27,6 @@ RUN apk add php7-iconv;
 RUN apk add php7-mbstring;
 
 RUN apk add php7-openssl;
-
-RUN apk add php7-cgi;
 
 RUN apk add --update nodejs nodejs-npm;
 
