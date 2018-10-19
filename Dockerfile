@@ -1,4 +1,4 @@
-FROM tmaier/docker-compose:latest
+FROM docker:latest
 
 MAINTAINER developers@synopsis.cz
 
@@ -37,6 +37,8 @@ RUN apk add git;
 RUN apk update && apk add curl && \
   curl -sS https://getcomposer.org/installer | php \
   && chmod +x composer.phar && mv composer.phar /usr/local/bin/composer
+
+RUN apk add py2-pip && pip install docker-compose;
 
 VOLUME /var/run/docker.sock:/var/run/docker.sock
 
