@@ -30,6 +30,8 @@ RUN apk add php7-openssl;
 
 RUN apk add npm;
 
+RUN apk add git;
+
 RUN apk update && apk add curl && \
   curl -sS https://getcomposer.org/installer | php \
   && chmod +x composer.phar && mv composer.phar /usr/local/bin/composer
