@@ -28,6 +28,8 @@ RUN apk add php7-mbstring;
 
 RUN apk add php7-openssl;
 
+RUN apk add php7-cgi;
+
 RUN apk add --update nodejs nodejs-npm;
 
 RUN apk add git;
