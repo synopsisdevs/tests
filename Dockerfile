@@ -1,4 +1,4 @@
-FROM docker:latest
+FROM tmaier/docker-compose:latest
 
 MAINTAINER developers@synopsis.cz
 
@@ -16,7 +16,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 #RUN groupadd docker || true;
 #RUN usermod -aG docker root;
 
-RUN apk update && apk add php;
+RUN apk update && apk add php7;
 
 RUN apk add php7-json;
 
@@ -28,7 +28,7 @@ RUN apk add php7-mbstring;
 
 RUN apk add php7-openssl;
 
-RUN apk add npm;
+RUN apk add --update nodejs nodejs-npm;
 
 RUN apk add git;
 
