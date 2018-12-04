@@ -4,18 +4,6 @@ MAINTAINER developers@synopsis.cz
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-#RUN apt-get update > /dev/null;
-#RUN apt-get install -y npm > /dev/null;
-##RUN apt-get install -y php > /dev/null;
-##RUN apt-get install -y php-zip;
-#RUN apt-get install -y composer > /dev/null;
-#RUN apt-get install -y curl > /dev/null;
-#RUN curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose > /dev/null;
-#RUN chmod +x /usr/local/bin/docker-compose;
-#RUN apt-get install -y docker.io;
-#RUN groupadd docker || true;
-#RUN usermod -aG docker root;
-
 RUN apk update && apk add php7;
 
 RUN apk add php7-json;
@@ -37,6 +25,30 @@ RUN apk update && apk add curl && \
   && chmod +x composer.phar && mv composer.phar /usr/local/bin/composer
 
 RUN apk add py2-pip && pip install docker-compose;
+
+#RUN apk update && apk add apt-transport-https;
+#
+#RUN sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -';
+#
+#RUN sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list';
+#
+#RUN apk update;
+#
+#RUN export PATH=/usr/lib/dart/bin:$PATH;
+
+CMD apt-get update;
+
+CMD apt-get install apt-transport-https;
+
+CMD sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -';
+
+CMD sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list';
+
+CMD  apt-get update;
+
+CMD export PATH=/usr/lib/dart/bin:$PATH;
+
+CMD apt-get install dart=1.24.3;
 
 VOLUME /var/run/docker.sock:/var/run/docker.sock
 
