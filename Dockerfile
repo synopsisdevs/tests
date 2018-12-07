@@ -20,6 +20,8 @@ RUN apk add --update nodejs nodejs-npm;
 
 RUN apk add git;
 
+RUN apk add rsync;
+
 RUN apk update && apk add curl && \
   curl -sS https://getcomposer.org/installer | php \
   && chmod +x composer.phar && mv composer.phar /usr/local/bin/composer
