@@ -30,7 +30,7 @@ RUN apk update && apk add curl && \
 
 RUN apk add py2-pip && pip install docker-compose;
 
-RUN npm install -g gulp --silent;
+RUN npm install -g gulp@3.9.1 --silent;
 
 VOLUME /var/run/docker.sock:/var/run/docker.sock
 
