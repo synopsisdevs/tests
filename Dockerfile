@@ -34,6 +34,10 @@ RUN npm install -g gulp@3.9.1 --silent;
 
 RUN npm install -g natives@1.1.6 --silent;
 
+RUN export DISABLE_NOTIFIER=1;
+
+RUN export COMPOSE_INTERACTIVE_NO_CLI=1;
+
 VOLUME /var/run/docker.sock:/var/run/docker.sock
 
 CMD ['-c', 'sh']
