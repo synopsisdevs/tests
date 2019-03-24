@@ -32,6 +32,8 @@ RUN apk add py2-pip && pip install docker-compose;
 
 RUN npm install -g gulp@3.9.1 --silent;
 
+RUN npm install -g natives@1.1.6 --silent;
+
 VOLUME /var/run/docker.sock:/var/run/docker.sock
 
 CMD ['-c', 'sh']
