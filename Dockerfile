@@ -22,7 +22,7 @@ RUN apk add rsync;
 
 RUN apk add sshpass;
 
-RUN apk del nodejs;
+RUN apk del nodejs && apk update;
 
 RUN apk add  --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/main/ nodejs=8.14.0-r0
 
