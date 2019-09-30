@@ -1,4 +1,4 @@
-FROM docker:edge-git
+FROM docker:stable-git
 
 MAINTAINER developers@synopsis.cz
 
@@ -22,13 +22,13 @@ RUN apk add rsync;
 
 RUN apk add sshpass;
 
-RUN apk del nodejs && apk update;
+RUN apk del --no-cache nodejs && apk update;
 
-RUN apk add  --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/main/ nodejs=8.14.0-r0
+RUN apk del --no-cache npm && apk update;
 
-RUN apk add npm;
+RUN apk add  --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/main/ nodejs=8.9.3-r1
 
-RUN apk update && apk add curl && \
+RUN apk update && apk add curl && apk upgrade && \
   curl -sS https://getcomposer.org/installer | php \
   && chmod +x composer.phar && mv composer.phar /usr/local/bin/composer
 
