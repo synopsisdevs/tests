@@ -1,6 +1,6 @@
 FROM node:6.14.3-alpine as node
 
-FROM docker:stable-git
+FROM docker:edge-git
 
 MAINTAINER developers@synopsis.cz
 
