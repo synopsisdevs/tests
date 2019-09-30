@@ -36,7 +36,7 @@ RUN apk update && apk add --update-cache --upgrade curl && \
   curl -sS https://getcomposer.org/installer | php \
   && chmod +x composer.phar && mv composer.phar /usr/local/bin/composer
 
-RUN apk add py2-pip && apk add python python-dev py-pip build-base libffi-dev openssl-dev libgcc && pip install docker-compose~=1.23.0;
+RUN apk add py2-pip && apk add python python-dev py-pip build-base libffi-dev openssl-dev libgcc && pip install docker-compose~=1.21.0;
 
 RUN npm install -g gulp@3.9.1 --silent;
 
