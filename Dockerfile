@@ -28,7 +28,7 @@ RUN apk del --no-cache npm && apk update;
 
 RUN apk add  --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/main/ nodejs=8.9.3-r1
 
-RUN apk update && apk add curl && apk upgrade && \
+RUN apk update && apk add --update-cache --upgrade curl && \
   curl -sS https://getcomposer.org/installer | php \
   && chmod +x composer.phar && mv composer.phar /usr/local/bin/composer
 
