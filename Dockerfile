@@ -28,11 +28,13 @@ RUN apk update && apk add curl && \
   curl -sS https://getcomposer.org/installer | php \
   && chmod +x composer.phar && mv composer.phar /usr/local/bin/composer
 
-RUN apk add py2-pip && pip install docker-compose;
+RUN apk add py2-pip && apk add python python-dev py-pip build-base libffi-dev openssl-dev libgcc && pip install docker-compose~=1.23.0;
 
 RUN npm install -g gulp@3.9.1 --silent;
 
-RUN npm install -g natives@1.1.6 --silent;
+#RUN npm install -g natives@1.1.6 --silent;
+
+#RUN gulp;
 
 RUN export DISABLE_NOTIFIER=true;
 
