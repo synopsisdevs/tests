@@ -1,3 +1,5 @@
+FROM node:6.14.3-alpine as node
+
 FROM docker:stable-git
 
 MAINTAINER developers@synopsis.cz
@@ -26,7 +28,9 @@ RUN apk del --no-cache nodejs && apk update;
 
 RUN apk del --no-cache npm && apk update;
 
-RUN apk add  --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/main/ nodejs=8.9.3-r1
+COPY --from=node /usr/local /usr/local
+
+RUN apk add libstdc++
 
 RUN apk update && apk add --update-cache --upgrade curl && \
   curl -sS https://getcomposer.org/installer | php \
