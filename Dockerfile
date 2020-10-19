@@ -1,4 +1,4 @@
-FROM node:12.19.0-alpine as node
+FROM node:6.14.3-alpine as node
 
 FROM docker:edge-git
 
@@ -38,7 +38,7 @@ RUN apk update && apk add --update-cache --upgrade curl && \
 
 RUN apk add py2-pip && apk add python python-dev py-pip build-base libffi-dev openssl-dev libgcc && pip install docker-compose~=1.21.0;
 
-RUN npm install -g gulp@4.0.2 --silent;
+RUN npm install -g gulp@3.9.1 --silent;
 
 RUN export DISABLE_NOTIFIER=true;
 
